@@ -35,5 +35,14 @@ class ViewController: UIViewController {
         model.numberToGuess = Int.random(in: 0..<100)
         print("Zu erratende Zahl \(model.numberToGuess)")
     }
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        let guessedNumber = model.compare(guessedString: textField.text!)
+        
+        if guessedNumber == 0 {
+            return true
+        }
+        return false
+    }
 }
 
